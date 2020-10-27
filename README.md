@@ -1,2 +1,3 @@
 # web_crawling_using_R
 A specialized  R  program  to  crawl,  parse  and  extract  useful information  from  online  websites.
+Given an input year, objective is to extract all articles published in/after that year from https://genomebiology.biomedcentral.com/ journal. Extracting the  following  9  fields  for each article:Title,  Authors,  Author  Affiliations,  Correspondence  Author,  Correspondence  Author's Email, Publish Date, Abstract, Keywords, Full Paper (Text format).The  Summary.xlsx  file,  which  lists  the  details  about  each  field  in  each  journal.  Given  an  input  year,  program will crawl the journal’s website automatically, and  parse and extract useful  fields  for  each  crawled  article.
