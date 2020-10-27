@@ -1,7 +1,3 @@
-#Group No. = 9 
-#Journal Number = 7 Genome Biology http://genomebiology.biomedcentral.com/
-#Group Members = Madhuri Chanumolu(mc882)  Manish Patel(mp933) Reneel Sagar Pamarthi(rp826)
-
 library(RCurl)
 library(XML)
 library(stringr)
@@ -23,9 +19,7 @@ crawl_article <- function(year){
       published_date = as.numeric(str_extract(publish_date_str, "[0-9]{4}+"))
       return(data.frame(DATE=published_date,url=link_of_article))
     }
-    
-    #list_of_links<-as.list(journal%>%read_html()%>%html_nodes(".c-navbar__link")%>%html_attr("href"))
-    #page_list_url = paste(journal_clear,list_of_links[3],"/",sep="")
+
     page_list_url = sprintf("https://genomebiology.biomedcentral.com/articles?tab=keyword&searchType=journalSearch&sort=PubDate&volume=%d&page=1",volume)
     max_str = page_list_url %>% read_html() %>% html_nodes("#main-content > div > main > div:nth-child(3) > h2 > strong") %>% html_text()
     max_articles = as.numeric(str_extract(max_str, "[0-9]+"))
@@ -95,6 +89,4 @@ crawl_article <- function(year){
     print("[I/O]: FILE: output/Genome_Biology.csv created.")
 }
 
-
 crawl_article(2018)
-
